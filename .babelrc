@@ -1,12 +1,6 @@
 {
   "presets": [
-      [
-      "env", {
-        "targets": {
-          "node": "current"
-        }
-      }
-    ]
+    "@babel/preset-env"
   ],
-  "plugins": [["transform-object-rest-spread", { "useBuiltIns": true }]]
+  "plugins": ["@babel/plugin-transform-runtime"]
 }
