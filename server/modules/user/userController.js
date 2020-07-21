@@ -65,10 +65,17 @@ export const allUsers = async (_req, res) => {
 
 export const getUser = async (req, res) => {
   try {
-    const { id } = req.params;
+    const userId = req.user;
     const user = await models.User.findOne({
-      where: { id },
-      attributes: { exclude: ['password'] }
+      where: { id: userId },
+      attributes: {
+        exclude: ['password', 'createdAt', 'updatedAt'],
+      },
+      include: [{
+        model: models.Address,
+        as: 'addresses',
+        attributes: { exclude: ['createdAt', 'updatedAt'] },
+      }]
     });
 
     if (!user) return errorResponse('User does not exist', 404, res);
@@ -79,6 +86,69 @@ export const getUser = async (req, res) => {
       user
     });
   } catch (error) { /* istanbul ignore next */
-    return errorResponse(error, 500, res);
+    return errorResponse(error.toString(), 500, res);
   }
+};
+
+export const updateUserName = async (req, res) => {
+  const userId = req.user;
+  const { name } = req.body;
+
+  const user = await models.User.findOne({
+    where: { id: userId },
+    attributes: {
+      exclude: ['password', 'createdAt', 'updatedAt'],
+    },
+  });
+
+  if (!user) return errorResponse('User does not exist', 409, res);
+
+  const userUpdateName = { name: name || (user.name || '') };
+
+  await trimData(userUpdateName);
+  await user.update(userUpdateName);
+
+  return res.status(201).json({
+    success: true,
+    user
+  });
+};
+
+export const addUserAddress = async (req, res) => {
+  try {
+    const userId = req.user;
+    const { name } = req.body;
+
+    const existingAddress = await models.Address.findOne({ where: { name, userId } });
+    if (existingAddress) return errorResponse('You already have a similar address', 409, res);
+
+    await trimData({ name });
+    const newAddress = await models.Address.create({ name, userId });
+    return res.status(201).json({
+      success: true,
+      newAddress
+    });
+  } catch (error) {
+    return errorResponse(error.toString(), 500, res);
+  }
+};
+
+export const updateUserAddress = async (req, res) => {
+  const userId = req.user;
+  const { name } = req.body;
+  const { id } = req.params;
+
+  const address = await models.Address.findOne({ where: { id, userId } });
+
+  if (!address) return errorResponse('Address does not exist', 409, res);
+
+  const adressUpdateName = { name: name || (address.name || '') };
+
+  await trimData(adressUpdateName);
+  await address.update(adressUpdateName);
+
+  return res.status(201).json({
+    success: true,
+    address
+  });
 };

@@ -8,7 +8,9 @@
     "server": "nodemon --exec babel-node ./",
     "client": "cd client && yarn start",
     "dev": "concurrently \"yarn server\" \"yarn client\"",
-    "test": "jest --no-cache  --detectOpenHandles --runInBand --forceExit"
+    "test": "jest --no-cache  --detectOpenHandles --runInBand --forceExit",
+    "mig": "sequelize db:migrate",
+    "undo:mig": "sequelize db:migrate:undo:all"
   },
   "dependencies": {
     "bcrypt": "^5.0.0",

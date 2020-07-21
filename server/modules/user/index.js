@@ -34,9 +34,29 @@ Router.get(
 );
 
 Router.get(
-  '/users/:id',
+  '/user',
   authorizeUser,
   UserController.getUser
+);
+
+Router.put(
+  '/user',
+  authorizeUser,
+  UserController.updateUserName
+);
+
+Router.post(
+  '/user/address/add',
+  authorizeUser,
+  UserValidator.userAddressValidators,
+  validatorResponse,
+  UserController.addUserAddress
+);
+
+Router.put(
+  '/user/address/:id',
+  authorizeUser,
+  UserController.updateUserAddress
 );
 
 export default Router;
