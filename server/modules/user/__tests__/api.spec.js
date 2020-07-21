@@ -30,11 +30,11 @@ describe('Index api', () => {
 
     it('should return 404 error for incorrect url', (done) => {
       request(app)
-        .get('/api/v1/use')
+        .get('/api/92899300')
         .end((err, res) => {
-          const { error } = res.body;
+          const { errors } = res.body;
           expect(res.status).toEqual(404);
-          expect(error).toEqual('Oops! This route does not exist');
+          expect(errors).toEqual('Oops! This route does not exist');
           if (err) return done(err);
           done();
         });

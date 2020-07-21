@@ -1,23 +1,38 @@
+import fs from 'fs';
+import path from 'path';
 import Sequelize from 'sequelize';
-import config from '../config';
+import config from '../config/config';
 
-const {
-  database, username, password, env
-} = config.development;
+const basename = path.basename(__filename);
+const env = process.env.NODE_ENV || 'development';
+const db = {};
 
-const sequelize = new Sequelize(database, username, password, env);
+let sequelize;
+if (config.use_env_variable) {
+  sequelize = new Sequelize(process.env[config.use_env_variable], config[env]);
+} else {
+  sequelize = new Sequelize(config[env].database, config[env].username,
+    config[env].password, config[env]);
+}
 
-const models = {
-  User: sequelize.import('./user')
-};
+fs.readdirSync(__dirname)
+  .filter(
+    (file) => file.indexOf('.') !== 0
+    && file !== basename
+    && file.slice(-3) === '.js',
+  )
+  .forEach((file) => {
+    const model = sequelize.import(path.join(__dirname, file));
+    db[model.name] = model;
+  });
 
-Object.keys(models).forEach((modelName) => {
-  if ('associate' in models[modelName]) {
-    models[modelName].associate(models);
+Object.keys(db).forEach((modelName) => {
+  if (db[modelName].associate) {
+    db[modelName].associate(db);
   }
 });
 
-models.sequelize = sequelize;
-models.Sequelize = Sequelize;
+db.sequelize = sequelize;
+db.Sequelize = Sequelize;
 
-export default models;
+module.exports = db;

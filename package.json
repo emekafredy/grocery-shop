@@ -8,9 +8,12 @@
     "server": "nodemon --exec babel-node ./",
     "client": "cd client && yarn start",
     "dev": "concurrently \"yarn server\" \"yarn client\"",
-    "test": "jest --no-cache  --detectOpenHandles --runInBand --forceExit"
+    "test": "jest --no-cache  --detectOpenHandles --runInBand --forceExit",
+    "mig": "sequelize db:migrate",
+    "undo:mig": "sequelize db:migrate:undo:all"
   },
   "dependencies": {
+    "@babel/runtime": "^7.10.5",
     "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
     "concurrently": "^5.2.0",
@@ -26,10 +29,10 @@
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",
-    "babel-cli": "^6.26.0",
+    "@babel/node": "^7.10.5",
+    "@babel/plugin-transform-runtime": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
     "babel-eslint": "^10.1.0",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
     "eslint": "^7.2.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.21.2",
