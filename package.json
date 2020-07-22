@@ -10,7 +10,8 @@
     "dev": "concurrently \"yarn server\" \"yarn client\"",
     "test": "jest --no-cache  --detectOpenHandles --runInBand --forceExit",
     "mig": "sequelize db:migrate",
-    "undo:mig": "sequelize db:migrate:undo:all"
+    "undo:mig": "sequelize db:migrate:undo:all",
+    "seed": "sequelize db:seed:all"
   },
   "dependencies": {
     "@babel/runtime": "^7.10.5",

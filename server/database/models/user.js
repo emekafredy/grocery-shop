@@ -13,6 +13,10 @@ export default (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
+    vendorName: {
+      unique: true,
+      type: DataTypes.STRING,
+    },
     image: {
       type: DataTypes.STRING,
     },
@@ -41,6 +45,11 @@ export default (sequelize, DataTypes) => {
     User.hasMany(models.Address, {
       as: 'addresses',
       foreignKey: 'userId'
+    });
+
+    User.hasMany(models.Grocery, {
+      as: 'groceries',
+      foreignKey: 'vendorId'
     });
   };
 

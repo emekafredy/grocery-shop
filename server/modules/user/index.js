@@ -15,7 +15,7 @@ Router.post(
 
 Router.post(
   '/vendors/register',
-  UserValidator.registerationValidators,
+  UserValidator.vendorRegisterationValidators,
   validatorResponse,
   UserController.registerVendor
 );
@@ -57,6 +57,18 @@ Router.put(
   '/user/address/:id',
   authorizeUser,
   UserController.updateUserAddress
+);
+
+Router.get(
+  '/vendors',
+  authorizeUser,
+  UserController.allVendors
+);
+
+Router.get(
+  '/vendor/:vendorName',
+  authorizeUser,
+  UserController.getVendor
 );
 
 export default Router;
