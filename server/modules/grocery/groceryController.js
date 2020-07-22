@@ -1,3 +1,4 @@
+import { Op } from 'sequelize';
 import errorResponse from '../../helpers/errorResponse';
 import models from '../../database/models';
 import { trimData } from '../../helpers/utils';
@@ -32,11 +33,30 @@ export const createGrocery = async (req, res) => {
   }
 };
 
-export const allGroceries = async (_req, res) => {
+export const getQueryClause = (keyword) => {
+  const queryClause = {
+    attributes: { exclude: ['vendorId', 'createdAt', 'updatedAt'] },
+  };
+
+  if (keyword) {
+    queryClause.where = {
+      [Op.or]: [
+        { name: { [Op.like]: `%${keyword}%` } },
+        { description: { [Op.like]: `%${keyword}%` } }
+      ]
+    };
+  }
+
+  return queryClause;
+};
+
+export const allGroceries = async (req, res) => {
   try {
-    const groceries = await models.Grocery.findAll({
-      attributes: { exclude: ['vendorId', 'createdAt', 'updatedAt'] }
-    });
+    const { keyword } = req.query;
+
+    const queryClause = getQueryClause(keyword);
+
+    const groceries = await models.Grocery.findAll(queryClause);
 
     return res.status(201).json({
       success: true,
