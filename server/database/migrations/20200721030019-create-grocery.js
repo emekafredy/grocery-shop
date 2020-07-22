@@ -18,8 +18,13 @@ module.exports = {
       type: Sequelize.DECIMAL(10, 2),
       allowNull: false
     },
-    userId: {
-      type: Sequelize.INTEGER,
+    discount: {
+      type: Sequelize.DECIMAL(10, 2),
+      allowNull: false,
+      defaultValue: 0.00,
+    },
+    vendorId: {
+      type: Sequelize.UUID,
       allowNull: false
     },
     categoryId: {

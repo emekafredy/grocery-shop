@@ -10,6 +10,10 @@ module.exports = {
       type: Sequelize.STRING,
       allowNull: false,
     },
+    vendorName: {
+      type: Sequelize.STRING,
+      unique: true,
+    },
     image: {
       type: Sequelize.STRING
     },

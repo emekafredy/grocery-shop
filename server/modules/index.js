@@ -1,7 +1,9 @@
 import userRouter from './user';
+import groceryrouter from './grocery';
+import categoryRouter from './category';
 
 const apiPrefix = '/api';
-const routes = [userRouter];
+const routes = [userRouter, groceryrouter, categoryRouter];
 
 const modules = (app) => {
   routes.forEach((route) => app.use(apiPrefix, route));

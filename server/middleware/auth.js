@@ -18,3 +18,23 @@ export const authorizeUser = async (req, res, next) => {
     return errorResponse(err, 500, res);
   }
 };
+
+export const authorizeVendorOrAdmin = async (req, res, next) => {
+  const { role } = req;
+
+  if (!(role === 'vendor' || role === 'admin')) {
+    return errorResponse('You cannot perform this action', 401, res);
+  }
+
+  return next();
+};
+
+export const authorizeAdmin = async (req, res, next) => {
+  const { role } = req;
+
+  if (!(role === 'admin')) {
+    return errorResponse('You cannot perform this action', 401, res);
+  }
+
+  return next();
+};

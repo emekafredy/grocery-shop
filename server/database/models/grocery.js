@@ -12,8 +12,13 @@ export default (sequelize, DataTypes) => {
       type: DataTypes.DECIMAL(10, 2),
       allowNull: false
     },
-    userId: {
-      type: DataTypes.INTEGER,
+    discount: {
+      type: DataTypes.DECIMAL(10, 2),
+      allowNull: false,
+      defaultValue: 0.00,
+    },
+    vendorId: {
+      type: DataTypes.UUID,
       allowNull: false
     },
     categoryId: {
@@ -36,7 +41,7 @@ export default (sequelize, DataTypes) => {
 
     Grocery.belongsTo(models.User, {
       as: 'vendor',
-      foreignKey: 'userId'
+      foreignKey: 'vendorId'
     });
   };
 
