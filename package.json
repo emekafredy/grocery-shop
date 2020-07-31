@@ -4,8 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "babel index.js -d dist",
     "dev": "nodemon --exec babel-node ./",
+    "start": "node index.js",
     "test": "jest --no-cache  --detectOpenHandles --runInBand --forceExit",
     "mig": "sequelize db:migrate",
     "undo:mig": "sequelize db:migrate:undo:all",
