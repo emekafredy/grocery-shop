@@ -18,7 +18,7 @@ export default (sequelize, DataTypes) => {
       defaultValue: 0.00,
     },
     vendorId: {
-      type: DataTypes.UUID,
+      type: DataTypes.INTEGER,
       allowNull: false
     },
     categoryId: {

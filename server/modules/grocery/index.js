@@ -17,13 +17,11 @@ Router.post(
 
 Router.get(
   '/groceries',
-  authorizeUser,
   GroceryController.allGroceries
 );
 
 Router.get(
   '/grocery/:id',
-  authorizeUser,
   GroceryController.getGrocery
 );
 
