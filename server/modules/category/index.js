@@ -17,13 +17,11 @@ Router.post(
 
 Router.get(
   '/categories',
-  authorizeUser,
   CategoryController.allCategories
 );
 
 Router.get(
   '/category/:id',
-  authorizeUser,
   CategoryController.getCategory
 );
 

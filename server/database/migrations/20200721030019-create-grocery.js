@@ -24,7 +24,7 @@ module.exports = {
       defaultValue: 0.00,
     },
     vendorId: {
-      type: Sequelize.UUID,
+      type: Sequelize.INTEGER,
       allowNull: false
     },
     categoryId: {

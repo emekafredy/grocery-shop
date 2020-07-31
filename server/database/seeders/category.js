@@ -31,22 +31,12 @@ module.exports = {
       updatedAt: new Date(),
     },
     {
-      name: 'Meat',
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    },
-    {
       name: 'Fruits & Vegies',
       createdAt: new Date(),
       updatedAt: new Date(),
     },
     {
       name: 'Cleaners',
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    },
-    {
-      name: 'Paper Goods',
       createdAt: new Date(),
       updatedAt: new Date(),
     },
