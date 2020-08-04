@@ -10,6 +10,13 @@ export const registerationValidators = [
   check('password')
     .isLength({ min: 8 })
     .withMessage('password must be at least 8 chars long')
+    .custom((value, { req }) => {
+      if (value !== req.body.confirmPassword) {
+        throw new Error("confirm password doesn't match with password");
+      } else {
+        return value;
+      }
+    })
 ];
 
 export const vendorRegisterationValidators = [

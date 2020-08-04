@@ -6,7 +6,7 @@ import { attemptLogin, generateToken } from '../../helpers/auth';
 export const register = async (req, res, requestBody) => {
   try {
     const existingEmail = await models.User.findOne({ where: { email: req.body.email } });
-    if (existingEmail) return errorResponse('Email has already been used', 409, res);
+    if (existingEmail) return errorResponse([{ msg: 'Email has already been used' }], 409, res);
 
     if (req.body.vendorName) {
       const existingVendorName = await models.User.findOne({ where: { vendorName: req.body.vendorName } });
@@ -28,11 +28,11 @@ export const register = async (req, res, requestBody) => {
 
 export const registerUser = async (req, res) => {
   const {
-    name, email, password
+    name, email, password, confirmPassword
   } = req.body;
   
   const newUser = {
-    name, email, password
+    name, email, password, confirmPassword
   };
 
   await register(req, res, newUser);

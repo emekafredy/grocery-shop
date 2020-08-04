@@ -22,7 +22,7 @@ export const attemptLogin = async (req, res) => {
     });
 
     const passwordMatched = await compare(password, user.password);
-    if (!passwordMatched) return errorResponse('Email or password is incorrect', 400, res);
+    if (!passwordMatched) return errorResponse([{ msg: 'Email or password is incorrect' }], 400, res);
 
     const token = await generateToken(user);
     return res.status(200).json({
