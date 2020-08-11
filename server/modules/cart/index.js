@@ -22,4 +22,16 @@ Router.get(
   CartController.getCart
 );
 
+Router.put(
+  '/shopping-cart/:id/:cartId',
+  CartValidator.updateCartItemValidators,
+  validatorResponse,
+  CartController.updateQuantity
+);
+
+Router.delete(
+  '/shopping-cart/:id/:cartId',
+  CartController.removeCartItem
+);
+
 export default Router;

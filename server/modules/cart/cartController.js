@@ -38,6 +38,7 @@ export const getCart = async (req, res, cartIdParam) => {
 
     const cart = await models.ShoppingCart.findAll({
       where: { cartId: cartId || cartIdParam },
+      order: [['createdAt', 'ASC']],
       include: [{
         model: models.Grocery,
         attributes: { exclude: ['createdAt', 'updatedAt'], },
@@ -83,6 +84,36 @@ export const getCart = async (req, res, cartIdParam) => {
       message: 'No product found in your cart',
       cart
     });
+  } catch (error) { /* istanbul ignore next */
+    return errorResponse(error, 500, res);
+  }
+};
+
+export const updateQuantity = async (req, res) => {
+  try {
+    const { quantity } = req.body;
+    const { id, cartId } = req.params;
+
+    const cartItem = await models.ShoppingCart.findOne({ where: { id, cartId } });
+    if (!cartItem) return errorResponse('Cart item not found', 404, res);
+
+    const quantityUpdate = { quantity: quantity || cartItem.quantity };
+    await cartItem.update(quantityUpdate);
+    return getCart(req, res, cartId);
+  } catch (error) { /* istanbul ignore next */
+    return errorResponse(error, 500, res);
+  }
+};
+
+export const removeCartItem = async (req, res) => {
+  try {
+    const { id, cartId } = req.params;
+
+    const cartItem = await models.ShoppingCart.findOne({ where: { id, cartId } });
+    if (!cartItem) return errorResponse('Cart item not found', 404, res);
+
+    await cartItem.destroy();
+    return getCart(req, res, cartId);
   } catch (error) { /* istanbul ignore next */
     return errorResponse(error, 500, res);
   }

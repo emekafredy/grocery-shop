@@ -8,3 +8,9 @@ export const addToCartValidators = [
     .not().isEmpty()
     .withMessage('CartId is missing')
 ];
+
+export const updateCartItemValidators = [
+  check('cartId')
+    .not().isEmpty()
+    .withMessage('CartId is missing')
+];
