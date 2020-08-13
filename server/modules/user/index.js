@@ -42,21 +42,7 @@ Router.get(
 Router.put(
   '/user',
   authorizeUser,
-  UserController.updateUserName
-);
-
-Router.post(
-  '/user/address/add',
-  authorizeUser,
-  UserValidator.userAddressValidators,
-  validatorResponse,
-  UserController.addUserAddress
-);
-
-Router.put(
-  '/user/address/:id',
-  authorizeUser,
-  UserController.updateUserAddress
+  UserController.updateUserProfile
 );
 
 Router.get(

@@ -42,11 +42,3 @@ export const loginValidators = [
     .not().isEmpty()
     .withMessage('password cannot be empty')
 ];
-
-export const userAddressValidators = [
-  check('name').trim()
-    .not().isEmpty()
-    .withMessage('Address cannot be empty')
-    .isLength({ min: 8 })
-    .withMessage('Address must be at least 8 chars long')
-];

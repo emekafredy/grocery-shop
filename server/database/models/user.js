@@ -27,6 +27,12 @@ export default (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
+    phone: {
+      type: DataTypes.STRING,
+    },
+    address: {
+      type: DataTypes.STRING,
+    },
   });
 
   User.beforeCreate(async (user) => {
@@ -35,11 +41,6 @@ export default (sequelize, DataTypes) => {
   });
 
   User.associate = (models) => {
-    User.hasMany(models.Address, {
-      as: 'addresses',
-      foreignKey: 'userId'
-    });
-
     User.hasMany(models.Grocery, {
       as: 'groceries',
       foreignKey: 'vendorId'
