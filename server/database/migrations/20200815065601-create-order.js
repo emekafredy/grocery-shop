@@ -1,41 +1,49 @@
 module.exports = {
-  up: async (queryInterface, Sequelize) => queryInterface.createTable('Groceries', {
+  up: async (queryInterface, Sequelize) => queryInterface.createTable('Orders', {
     id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
       type: Sequelize.INTEGER
     },
-    name: {
+    totalCost: {
+      type: Sequelize.INTEGER,
+      allowNull: false
+    },
+    comments: {
       type: Sequelize.STRING,
       allowNull: false
     },
-    description: {
+    customerId: {
+      type: Sequelize.INTEGER,
+      allowNull: false
+    },
+    reference: {
       type: Sequelize.STRING,
       allowNull: false
     },
-    price: {
+    groceryId: {
       type: Sequelize.INTEGER,
       allowNull: false
     },
-    discount: {
-      type: Sequelize.INTEGER,
-      allowNull: false,
-      defaultValue: 0,
+    groceryName: {
+      type: Sequelize.STRING,
+      allowNull: false
     },
-    vendorId: {
+    quantity: {
       type: Sequelize.INTEGER,
       allowNull: false
     },
-    categoryId: {
+    unitCost: {
       type: Sequelize.INTEGER,
       allowNull: false
     },
-    image: {
-      type: Sequelize.STRING
+    shippedOn: {
+      type: Sequelize.DATE
     },
-    image2: {
-      type: Sequelize.STRING
+    delivered: {
+      type: Sequelize.BOOLEAN,
+      defaultValue: false
     },
     createdAt: {
       allowNull: false,
@@ -46,5 +54,5 @@ module.exports = {
       type: Sequelize.DATE
     }
   }),
-  down: async (queryInterface) => queryInterface.dropTable('Groceries')
+  down: async (queryInterface) => queryInterface.dropTable('Orders'),
 };

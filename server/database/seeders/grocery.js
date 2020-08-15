@@ -6,8 +6,8 @@ module.exports = {
       name: 'Ice Tea',
       description: `A brilliant taste for a brighter day. Ice Tea 
         is the most refreshingly delicious tea for you and your family.`,
-      price: 350.50,
-      discount: 40.00,
+      price: 350,
+      discount: 40,
       vendorId: process.env.ADMIN_ID,
       categoryId: 1,
       image: 'https://bigtaste.com.ng/wp-content/uploads/2019/08/ice-tea-600x600.png',
@@ -18,8 +18,8 @@ module.exports = {
     {
       name: 'Orange Drink',
       description: 'Fresh orange juice with a fantastic, refreshing taste to give you a bright start.',
-      price: 300.50,
-      discount: 0.00,
+      price: 300,
+      discount: 0,
       vendorId: process.env.ADMIN_ID,
       categoryId: 1,
       image: 'https://cdn.cdkitchen.com/images/cats/956/cat-956-720-1.jpg',
@@ -30,8 +30,8 @@ module.exports = {
     {
       name: 'Chocolate Milk',
       description: 'Enjoy a cold glass of chocolate milk. Great recovery drink for you taste buds',
-      price: 550.50,
-      discount: 40.50,
+      price: 550,
+      discount: 40,
       vendorId: process.env.ADMIN_ID,
       categoryId: 1,
       image: 'https://i0.wp.com/www.nutriziouz.com/wp-content/uploads/2016/06/Chocolate-Chocolate-Milk.jpg?fit=629%2C496&ssl=1',
@@ -44,8 +44,8 @@ module.exports = {
       description: `Lemons are rich in Vitamin C, which is essential for
         maintaining a fully functional immune system, aiding digestion,
         fighting cancer, helping wounds to heal and even helping to prevent heart failure.`,
-      price: 250.50,
-      discount: 0.00,
+      price: 250,
+      discount: 0,
       vendorId: process.env.ADMIN_ID,
       categoryId: 1,
       image: 'https://sc01.alicdn.com/kf/UTB8ZASSP3QydeJk43PUq6AyQpXa9.jpg',
@@ -57,8 +57,8 @@ module.exports = {
       name: 'Irish Cream',
       description: `This delicious homemade Irish cream has less fat.
         It tastes pretty nice. It’s way cheaper than buying a bottle!`,
-      price: 750.50,
-      discount: 50.00,
+      price: 750,
+      discount: 50,
       vendorId: process.env.ADMIN_ID,
       categoryId: 1,
       image: 'https://www.organiclifetips.com/wp-content/uploads/2018/10/Homemade-Baileys-Irish-Cream.jpg',
@@ -71,8 +71,8 @@ module.exports = {
       description: `The best cake that is sure to give you 
         the satisfaction that you crave. Rich in its flavour and well prepared to soothe your needs and taste buds.
         Make the best out of this offer.`,
-      price: 10400.50,
-      discount: 50.00,
+      price: 10400,
+      discount: 50,
       vendorId: process.env.ADMIN_ID,
       categoryId: 2,
       image: 'https://cdn.shopify.com/s/files/1/2725/9456/products/flavourtown-bakery-london-cakes_vanilla-party_2048x2048.jpg?v=1583340892',
@@ -85,8 +85,8 @@ module.exports = {
       description: `The best banana bread that is sure to give you 
         the satisfaction that you crave. Rich in its flavour and well prepared to soothe your needs and taste buds.
         Make the best out of this offer.`,
-      price: 1750.50,
-      discount: 50.00,
+      price: 1750,
+      discount: 50,
       vendorId: process.env.ADMIN_ID,
       categoryId: 2,
       image: 'https://www.simplyrecipes.com/wp-content/uploads/2014/08/banana-bread-horiz-a-1600.jpg',
@@ -99,8 +99,8 @@ module.exports = {
       description: `The best brownie that is sure to give you 
         the satisfaction that you crave. Rich in its flavour and well prepared to soothe your needs and taste buds.
         Make the best out of this offer.`,
-      price: 700.50,
-      discount: 50.00,
+      price: 700,
+      discount: 50,
       vendorId: process.env.ADMIN_ID,
       categoryId: 2,
       image: 'https://food.fnr.sndimg.com/content/dam/images/food/fullset/2009/8/13/3/FNM100109HeMadeSheMade007_s4x3.jpg.rend.hgtvcom.826.620.suffix/1371590940923.jpeg',
@@ -113,8 +113,8 @@ module.exports = {
       description: `The best bread that is sure to give you 
         the satisfaction that you crave. Rich in its flavour and well prepared to soothe your needs and taste buds.
         Make the best out of this offer.`,
-      price: 350.50,
-      discount: 50.00,
+      price: 350,
+      discount: 50,
       vendorId: process.env.ADMIN_ID,
       categoryId: 2,
       image: 'https://butterwithasideofbread.com/wp-content/uploads/2019/07/White-Bread_10.bsb_.jpg',
@@ -127,8 +127,8 @@ module.exports = {
       description: `The best cookie that is sure to give you 
         the satisfaction that you crave. Rich in its flavour and well prepared to soothe your needs and taste buds.
         Make the best out of this offer.`,
-      price: 600.50,
-      discount: 50.00,
+      price: 600,
+      discount: 50,
       vendorId: process.env.ADMIN_ID,
       categoryId: 2,
       image: 'https://www.wholesomeyum.com/wp-content/uploads/2017/02/wholesomeyum-the-best-low-carb-keto-chocolate-chip-cookies-recipe-with-almond-flour-12.jpg',
@@ -141,8 +141,8 @@ module.exports = {
       description: `The best canned beef that is sure to give you 
         the satisfaction that you crave. Rich in its flavour and well prepared to soothe your needs and taste buds.
         Make the best out of this offer.`,
-      price: 600.50,
-      discount: 50.00,
+      price: 600,
+      discount: 50,
       vendorId: process.env.ADMIN_ID,
       categoryId: 3,
       image: 'https://previews.123rf.com/images/paulcowan/paulcowan1009/paulcowan100900020/7859800-a-tin-of-corned-beef-or-bully-beef-open-on-a-plate.jpg',
@@ -155,8 +155,8 @@ module.exports = {
       description: `The best canned sweet that is sure to give you 
         the satisfaction that you crave. Rich in its flavour and well prepared to soothe your needs and taste buds.
         Make the best out of this offer.`,
-      price: 600.50,
-      discount: 50.00,
+      price: 600,
+      discount: 50,
       vendorId: process.env.ADMIN_ID,
       categoryId: 3,
       image: 'https://previews.123rf.com/images/izzzy71/izzzy711904/izzzy71190400051/121671566-canned-corn-sweet-corn-in-a-tin.jpg',
@@ -169,8 +169,8 @@ module.exports = {
       description: `The best milk that is sure to give you 
         the satisfaction that you crave. Rich in its flavour and well prepared to soothe your needs and taste buds.
         Make the best out of this offer.`,
-      price: 500.50,
-      discount: 50.00,
+      price: 500,
+      discount: 50,
       vendorId: process.env.ADMIN_ID,
       categoryId: 4,
       image: 'https://previews.123rf.com/images/iamnao/iamnao1208/iamnao120800026/14783872-bottle-of-fresh-milk-and-glass-on-a-wooden-table.jpg',
@@ -183,8 +183,8 @@ module.exports = {
       description: `The best flour that is sure to give you 
         the satisfaction that you crave. Rich in its flavour and well prepared to soothe your needs and taste buds.
         Make the best out of this offer.`,
-      price: 600.50,
-      discount: 50.00,
+      price: 600,
+      discount: 50,
       vendorId: process.env.ADMIN_ID,
       categoryId: 5,
       image: 'https://manbakeng.com/wp-content/uploads/2019/03/flour.jpg',
@@ -197,8 +197,8 @@ module.exports = {
       description: `The best sugar that is sure to give you 
         the satisfaction that you crave. Rich in its flavour and well prepared to soothe your needs and taste buds.
         Make the best out of this offer.`,
-      price: 600.50,
-      discount: 50.00,
+      price: 600,
+      discount: 50,
       vendorId: process.env.ADMIN_ID,
       categoryId: 5,
       image: 'https://i0.wp.com/media.premiumtimesng.com/wp-content/files/2018/06/sugar.jpg?fit=1280%2C720&ssl=1',
@@ -211,8 +211,8 @@ module.exports = {
       description: `The best frozen chicken that is sure to give you 
         the satisfaction that you crave. Rich in its flavour and well prepared to soothe your needs and taste buds.
         Make the best out of this offer.`,
-      price: 3400.50,
-      discount: 50.00,
+      price: 3400,
+      discount: 50,
       vendorId: process.env.ADMIN_ID,
       categoryId: 6,
       image: 'https://ua.all.biz/img/ua/catalog/16606932.jpg',
@@ -225,8 +225,8 @@ module.exports = {
       description: `The best frozen beef that is sure to give you 
         the satisfaction that you crave. Rich in its flavour and well prepared to soothe your needs and taste buds.
         Make the best out of this offer.`,
-      price: 1600.50,
-      discount: 0.00,
+      price: 1600,
+      discount: 0,
       vendorId: process.env.ADMIN_ID,
       categoryId: 6,
       image: 'https://image.shutterstock.com/z/stock-photo-frozen-beef-slices-in-hoarfrost-close-up-223741525.jpg',
@@ -239,8 +239,8 @@ module.exports = {
       description: `The best Pineapple that is sure to give you 
         the satisfaction that you crave. Rich in its flavour and well prepared to soothe your needs and taste buds.
         Make the best out of this offer.`,
-      price: 400.50,
-      discount: 50.00,
+      price: 400,
+      discount: 50,
       vendorId: process.env.ADMIN_ID,
       categoryId: 7,
       image: 'https://www.plantgrower.org/uploads/6/5/5/4/65545169/published/pineapple.jpg?1516498929',
@@ -253,11 +253,11 @@ module.exports = {
       description: `The best Pumpkin Leaf that is sure to give you 
         the satisfaction that you crave. Rich in its flavour and well prepared to soothe your needs and taste buds.
         Make the best out of this offer.`,
-      price: 200.50,
-      discount: 0.00,
+      price: 200,
+      discount: 0,
       vendorId: process.env.ADMIN_ID,
       categoryId: 7,
-      image: 'https://static.wixstatic.com/media/6427b3_ec66fffb731448ecac1779052b0544a9~mv2_d_3543_3543_s_4_2.jpg/v1/fill/w_480,h_480,al_c,q_85,usm_0.66_1.00_0.01/6427b3_ec66fffb731448ecac1779052b0544a9~mv2_d_3543_3543_s_4_2.webp',
+      image: 'https://static.wixstatic.com/media/6427b3_ec66fffb731448ecac1779052b0544a9~mv2_d_3543_3543_s_4_2.jpg/v1/fill/w_480,h_480,al_c,q_85,usm_0.66_1_0.01/6427b3_ec66fffb731448ecac1779052b0544a9~mv2_d_3543_3543_s_4_2.webp',
       image2: 'https://247foods.ng/public/uploads/1594633338-h-250-ugu-bunch.jpg',
       createdAt: new Date(),
       updatedAt: new Date(),
@@ -267,8 +267,8 @@ module.exports = {
       description: `The best water melon that is sure to give you 
         the satisfaction that you crave. Rich in its flavour and well prepared to soothe your needs and taste buds.
         Make the best out of this offer.`,
-      price: 500.50,
-      discount: 0.00,
+      price: 500,
+      discount: 0,
       vendorId: process.env.ADMIN_ID,
       categoryId: 7,
       image: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.plantgrower.org%2Fwatermelon.html&psig=AOvVaw0L3_9ujKriNyIJWi5E8SnJ&ust=1596132413145000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOiat-GG8-oCFQAAAAAdAAAAABAD',
@@ -281,8 +281,8 @@ module.exports = {
       description: `The best Water Leaf that is sure to give you 
         the satisfaction that you crave. Rich in its flavour and well prepared to soothe your needs and taste buds.
         Make the best out of this offer.`,
-      price: 100.50,
-      discount: 0.00,
+      price: 100,
+      discount: 0,
       vendorId: process.env.ADMIN_ID,
       categoryId: 7,
       image: 'https://www.izaronstore.com/wp-content/uploads/2019/03/Water-Leaf-izaron-online-grocery-store-abuja-nigeria-.png',
@@ -295,8 +295,8 @@ module.exports = {
       description: `The best Grapes that is sure to give you 
         the satisfaction that you crave. Rich in its flavour and well prepared to soothe your needs and taste buds.
         Make the best out of this offer.`,
-      price: 1200.50,
-      discount: 0.00,
+      price: 1200,
+      discount: 0,
       vendorId: process.env.ADMIN_ID,
       categoryId: 7,
       image: 'https://www.thepacker.com/sites/default/files/Grapes_Red_web_.jpg',
@@ -309,8 +309,8 @@ module.exports = {
       description: `The best Apple that is sure to give you 
         the satisfaction that you crave. Rich in its flavour and well prepared to soothe your needs and taste buds.
         Make the best out of this offer.`,
-      price: 230.50,
-      discount: 10.00,
+      price: 230,
+      discount: 10,
       vendorId: process.env.ADMIN_ID,
       categoryId: 7,
       image: 'https://i5.walmartimages.ca/images/Large/094/514/6000200094514.jpg',
@@ -322,8 +322,8 @@ module.exports = {
       name: 'Mop Stick',
       description: `The best Mop Stick that is sure to give your household and
         environment a shiny and tidy look`,
-      price: 500.50,
-      discount: 0.00,
+      price: 500,
+      discount: 0,
       vendorId: process.env.ADMIN_ID,
       categoryId: 8,
       image: 'https://cdn11.bigcommerce.com/s-uzp9ass4j1/images/stencil/1280x1280/products/255/566/169-1695726_stirrup-mop-stick-metal-mop-hd-png-download__92117.1580943705.png?c=1&imbypass=on',
@@ -335,8 +335,8 @@ module.exports = {
       name: 'Detergent',
       description: `The best Detergent that is sure to give your household and
         environment a shiny and tidy look`,
-      price: 600.99,
-      discount: 30.00,
+      price: 600,
+      discount: 30,
       vendorId: process.env.ADMIN_ID,
       categoryId: 8,
       image: 'https://www.dailyecho.co.uk/resources/images/6350033/?type=responsive-gallery',
@@ -348,8 +348,8 @@ module.exports = {
       name: 'Sponge',
       description: `The best Sponge that is sure to give your household and
         environment a shiny and tidy look`,
-      price: 100.50,
-      discount: 0.00,
+      price: 100,
+      discount: 0,
       vendorId: process.env.ADMIN_ID,
       categoryId: 8,
       image: 'https://www.collinsdictionary.com/images/full/sponge_772501450_1000.jpg',
@@ -361,8 +361,8 @@ module.exports = {
       name: 'Bucket',
       description: `The best bucket that is sure to give your household and
         environment a shiny and tidy look`,
-      price: 800.99,
-      discount: 0.00,
+      price: 800,
+      discount: 0,
       vendorId: process.env.ADMIN_ID,
       categoryId: 8,
       image: 'https://image.made-in-china.com/2f0j00zEYRuKdGTtkr/Durable-Construction-Tools-14L-Heavy-Duty-Rubber-Pails-Buckets.jpg',
@@ -374,8 +374,8 @@ module.exports = {
       name: 'Brush',
       description: `The best brush that is sure to give your household and
         environment a shiny and tidy look`,
-      price: 400.90,
-      discount: 55.00,
+      price: 400,
+      discount: 55,
       vendorId: process.env.ADMIN_ID,
       categoryId: 8,
       image: 'https://images.uline.com/is/image/content/dam/images/H/H4000/H-3536.jpg?$Mobile_Zoom$&iccEmbed=1&icc=AdobeRGB',
@@ -386,8 +386,8 @@ module.exports = {
     {
       name: 'Powder',
       description: 'The best Powder that is sure to give you a shiny and tidy look',
-      price: 400.90,
-      discount: 55.00,
+      price: 400,
+      discount: 55,
       vendorId: process.env.ADMIN_ID,
       categoryId: 9,
       image: 'https://cdn.shopify.com/s/files/1/1959/4397/products/ClearSkiesPowderCleanser_Pile_1_1_1024x1024.jpg?v=1584439887',
@@ -398,8 +398,8 @@ module.exports = {
     {
       name: 'Body Lotion',
       description: 'The best Powder that is sure to give you a shiny and tidy look',
-      price: 1500.90,
-      discount: 55.00,
+      price: 1500,
+      discount: 55,
       vendorId: process.env.ADMIN_ID,
       categoryId: 9,
       image: 'https://www.suave.com/sk-eu/content/dam/brands/suave/united_states_ofamerica/1224948-us-svb-32oz-bl-advancedtherapy-10867-fop.png.rendition.767.767.png',
@@ -412,8 +412,8 @@ module.exports = {
       description: `The best chin chin that is sure to give you 
         the satisfaction that you crave. Rich in its flavour and well prepared to soothe your needs and taste buds.
         Make the best out of this offer.`,
-      price: 1400.90,
-      discount: 55.00,
+      price: 1400,
+      discount: 55,
       vendorId: process.env.ADMIN_ID,
       categoryId: 2,
       image: 'https://yucee.biz/wp-content/uploads/2017/03/chin-chin-product-listing.jpg',
@@ -426,8 +426,8 @@ module.exports = {
       description: `The best lettuce that is sure to give you 
         the satisfaction that you crave. Rich in its flavour and well prepared to soothe your needs and taste buds.
         Make the best out of this offer.`,
-      price: 800.90,
-      discount: 55.00,
+      price: 800,
+      discount: 55,
       vendorId: process.env.ADMIN_ID,
       categoryId: 7,
       image: 'https://st1.thehealthsite.com/wp-content/uploads/2019/11/cabbage-leaves-for-a-migraine.jpg?impolicy=Medium_Resize&w=1200&h=800',

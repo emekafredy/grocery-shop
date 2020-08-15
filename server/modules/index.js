@@ -2,10 +2,15 @@ import userRouter from './user';
 import groceryrouter from './grocery';
 import categoryRouter from './category';
 import shoppingCartRouter from './cart';
+import checkoutRouter from './checkout';
 
 const apiPrefix = '/api';
 const routes = [
-  userRouter, groceryrouter, categoryRouter, shoppingCartRouter
+  userRouter,
+  groceryrouter,
+  categoryRouter,
+  shoppingCartRouter,
+  checkoutRouter
 ];
 
 const modules = (app) => {
