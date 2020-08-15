@@ -75,7 +75,7 @@ export const getCart = async (req, res, cartIdParam) => {
         message: 'cart retrieved',
         cart: cartValues,
         totalItems: groceryQuantity,
-        totalPrice: parseFloat(groceryDiscount).toFixed(2),
+        totalPrice: groceryDiscount,
       });
     }
 
