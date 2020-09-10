@@ -18,7 +18,7 @@ import {
   duplicateVendorInput
 } from './data/user';
 
-describe('User Controller Spec', () => {
+describe('User Controller Specs', () => {
   beforeAll(async () => {
     await models.User.destroy({ force: true, truncate: { cascade: true } });
   });

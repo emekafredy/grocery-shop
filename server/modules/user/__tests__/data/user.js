@@ -13,6 +13,14 @@ export const validVendorInput = {
   role: 'vendor'
 };
 
+export const validAdminInput = {
+  name: 'John',
+  email: 'john@mail.com',
+  password: '123456789',
+  vendorName: 'vendor123',
+  role: 'admin'
+};
+
 export const missingInputValues = {
   name: 'Jane',
   email: '',
