@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "nodemon --exec babel-node ./",
     "start": "babel-node ./",
-    "test": "jest --no-cache  --detectOpenHandles --runInBand --forceExit",
+    "pretest": "yarn undo:mig && yarn mig",
+    "test": "jest --no-cache  --detectOpenHandles --runInBand --forceExit --verbose",
     "mig": "sequelize db:migrate",
     "undo:mig": "sequelize db:migrate:undo:all",
     "seed": "sequelize db:seed:all"

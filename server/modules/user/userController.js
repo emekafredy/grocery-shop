@@ -68,16 +68,17 @@ export const allUsers = async (_req, res) => {
   }
 };
 
-export const getUser = async (req, res, userIdArg) => {
+export const getUser = async (req, res) => {
   try {
     const userId = req.user;
     const user = await models.User.findOne({
-      where: { id: userId || userIdArg },
+      where: { id: userId },
       attributes: {
         exclude: ['password', 'createdAt', 'updatedAt'],
       }
     });
 
+    /* istanbul ignore next */
     if (!user) return errorResponse('User does not exist', 404, res);
     
     return res.status(200).json({
@@ -101,6 +102,8 @@ export const updateUserProfile = async (req, res) => {
         exclude: ['password', 'createdAt', 'updatedAt'],
       },
     });
+
+    /* istanbul ignore next */
     if (!user) return errorResponse('User does not exist', 409, res);
   
     const userUpdateDetails = {
@@ -112,11 +115,11 @@ export const updateUserProfile = async (req, res) => {
     await trimData(userUpdateDetails);
     await user.update(userUpdateDetails);
   
-    return res.status(201).json({
+    return res.status(200).json({
       success: true,
       user
     });
-  } catch (error) {
+  } catch (error) { /* istanbul ignore next */
     return errorResponse(error.toString(), 500, res);
   }
 };
@@ -132,7 +135,7 @@ export const allVendors = async (_req, res) => {
       success: true,
       vendors
     });
-  } catch (error) {
+  } catch (error) { /* istanbul ignore next */
     return errorResponse(error.toString(), 500, res);
   }
 };
@@ -140,9 +143,9 @@ export const allVendors = async (_req, res) => {
 export const getVendor = async (req, res) => {
   try {
     const { vendorName } = req.params;
-    const vendors = await models.User.findOne({
+    const vendor = await models.User.findOne({
       where: { vendorName },
-      attributes: { exclude: ['createdAt', 'updatedAt', 'password', 'role', 'email', 'id'] },
+      attributes: { exclude: ['createdAt', 'updatedAt', 'password', 'email', 'id'] },
       include: [{
         model: models.Grocery,
         as: 'groceries',
@@ -152,9 +155,9 @@ export const getVendor = async (req, res) => {
 
     return res.status(200).json({
       success: true,
-      vendors
+      vendor
     });
-  } catch (error) {
+  } catch (error) { /* istanbul ignore next */
     return errorResponse(error.toString(), 500, res);
   }
 };

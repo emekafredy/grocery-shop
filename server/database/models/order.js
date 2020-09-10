@@ -40,6 +40,11 @@ export default (sequelize, DataTypes) => {
       type: DataTypes.BOOLEAN,
       defaultValue: false
     },
+    status: {
+      allowNull: false,
+      type: DataTypes.ENUM('Ordered', 'Shipped', 'Delivered'),
+      defaultValue: 'Ordered',
+    },
   });
 
   Order.associate = (models) => {
