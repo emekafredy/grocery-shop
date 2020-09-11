@@ -90,7 +90,7 @@ export const duplicateVendorInput = {
   role: 'vendor'
 };
 
-export const userData = [
+export const usersData = [
   {
     name: 'John Doe',
     email: 'j.doe@mail.com',
@@ -103,16 +103,16 @@ export const userData = [
   }
 ];
 
-export const adminData = [{
-  name: 'Doe Smith',
-  email: 'd.smith@mail.com',
-  password: '123456789',
-  role: 'admin'
-}];
-
-export const vendorData = [{
-  name: 'Doe Smith',
-  email: 'd.smith@mail.com',
-  password: '123456789',
-  role: 'vendor'
-}];
+export const usersDataII = [
+  {
+    name: 'Doe Smith',
+    email: 'd.smith@mail.com',
+    password: '123456789',
+    role: 'admin'
+  }, {
+    name: 'John Doe',
+    email: 'j.doe@mail.com',
+    password: '123456789',
+    role: 'vendor'
+  }
+];

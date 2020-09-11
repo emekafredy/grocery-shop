@@ -3,16 +3,17 @@ import app from '../../../../app';
 import models from '../../../database/models';
 import { clearTables, generateTestToken } from '../../../helpers/specHelper';
 
-import { adminData } from '../../user/__tests__/data/user';
+import { usersDataII } from '../../user/__tests__/data/user';
 
 describe('Category Controller Specs', () => {
-  let adminToken;
+  let adminToken; let vendorToken;
 
   beforeAll(async () => {
     await clearTables();
-    await models.User.bulkCreate(adminData);
+    await models.User.bulkCreate(usersDataII);
 
     adminToken = await generateTestToken('d.smith@mail.com');
+    vendorToken = await generateTestToken('j.doe@mail.com');
   });
 
   afterAll(async () => {
@@ -32,6 +33,23 @@ describe('Category Controller Specs', () => {
           expect(res.status).toEqual(201);
           expect(success).toEqual(true);
           expect(category.name).toEqual('Fruits');
+          if (err) return done(err);
+          done();
+        });
+    });
+
+    it('throws an authorization error if user is not an admin', (done) => {
+      request(app)
+        .post('/api/category/new')
+        .set('Content-Type', 'application/json')
+        .set('authorization', vendorToken)
+        .send({ name: 'Fruits' })
+        .end((err, res) => {
+          const { errors, success } = res.body;
+
+          expect(res.status).toEqual(401);
+          expect(success).toEqual(false);
+          expect(errors).toEqual('You cannot perform this action');
           if (err) return done(err);
           done();
         });

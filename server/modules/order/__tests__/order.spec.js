@@ -5,7 +5,7 @@ import { clearTables, generateTestToken } from '../../../helpers/specHelper';
 
 import { orderData } from './data/order';
 import { groceriesData, categoriesData } from '../../grocery/__tests__/data/grocery';
-import { userData } from '../../user/__tests__/data/user';
+import { usersData } from '../../user/__tests__/data/user';
 
 describe('Cart Controller Specs', () => {
   let userToken; let userTokenII;
@@ -14,7 +14,7 @@ describe('Cart Controller Specs', () => {
 
     await models.Category.bulkCreate(categoriesData);
     await models.Grocery.bulkCreate(groceriesData);
-    await models.User.bulkCreate(userData);
+    await models.User.bulkCreate(usersData);
     await models.Order.bulkCreate(orderData);
 
     userToken = await generateTestToken('j.smith@mail.com');

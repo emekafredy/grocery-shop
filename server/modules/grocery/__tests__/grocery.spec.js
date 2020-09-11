@@ -10,18 +10,19 @@ import {
   categoriesData,
   duplicateGroceryNameInput
 } from './data/grocery';
-import { vendorData } from '../../user/__tests__/data/user';
+import { usersData } from '../../user/__tests__/data/user';
 
 describe('Grocery Controller Specs', () => {
-  let vendorToken;
+  let vendorToken; let userToken;
 
   beforeAll(async () => {
     await clearTables();
 
     await models.Category.bulkCreate(categoriesData);
-    await models.User.bulkCreate(vendorData);
+    await models.User.bulkCreate(usersData);
 
-    vendorToken = await generateTestToken('d.smith@mail.com');
+    vendorToken = await generateTestToken('j.doe@mail.com');
+    userToken = await generateTestToken('j.smith@mail.com');
   });
 
   afterAll(async () => {
@@ -41,6 +42,40 @@ describe('Grocery Controller Specs', () => {
           expect(res.status).toEqual(201);
           expect(success).toEqual(true);
           expect(grocery.name).toEqual('Apple');
+          if (err) return done(err);
+          done();
+        });
+    });
+
+    it('throws an authorization error if user is not an admin or vendor', (done) => {
+      request(app)
+        .post('/api/grocery/new')
+        .set('Content-Type', 'application/json')
+        .set('authorization', userToken)
+        .send(validGroceryInput)
+        .end((err, res) => {
+          const { errors, success } = res.body;
+
+          expect(res.status).toEqual(401);
+          expect(success).toEqual(false);
+          expect(errors).toEqual('You cannot perform this action');
+          if (err) return done(err);
+          done();
+        });
+    });
+
+    it('throws an authorization error if token is not provided', (done) => {
+      request(app)
+        .post('/api/grocery/new')
+        .set('Content-Type', 'application/json')
+        .set('authorization', '')
+        .send(validGroceryInput)
+        .end((err, res) => {
+          const { errors, success } = res.body;
+
+          expect(res.status).toEqual(403);
+          expect(success).toEqual(false);
+          expect(errors).toEqual('Please provide a token');
           if (err) return done(err);
           done();
         });
