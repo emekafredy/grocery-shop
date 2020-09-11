@@ -1,6 +1,6 @@
 import request from 'supertest';
 import app from '../../../../app';
-import models from '../../../database/models';
+import { clearTables } from '../../../helpers/specHelper';
 
 import {
   validUserInput,
@@ -20,11 +20,11 @@ import {
 
 describe('User Controller Specs', () => {
   beforeAll(async () => {
-    await models.User.destroy({ force: true, truncate: { cascade: true } });
+    await clearTables();
   });
 
   afterAll(async () => {
-    await models.User.destroy({ force: true, truncate: { cascade: true } });
+    await clearTables();
   });
 
   describe('Authentication', () => {

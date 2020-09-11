@@ -1,7 +1,7 @@
 import { compare } from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
-import models from '../database/models/index';
+import models from '../database/models';
 import errorResponse from './errorResponse';
 
 export const generateToken = async (user) => {

@@ -1,24 +1,22 @@
 import request from 'supertest';
 import app from '../../../../app';
 import models from '../../../database/models';
+import { clearTables, generateTestToken } from '../../../helpers/specHelper';
 
-import { validVendorInput } from '../../user/__tests__/data/user';
+import { adminData } from '../../user/__tests__/data/user';
 
 describe('Category Controller Specs', () => {
-  let token;
+  let adminToken;
 
   beforeAll(async () => {
-    await models.User.destroy({ force: true, truncate: { cascade: true } });
-    await models.Category.destroy({ force: true, truncate: { cascade: true } });
-    const vendor = await request(app).post('/api/vendors/register').send(validVendorInput);
-  
-    // eslint-disable-next-line prefer-destructuring
-    token = vendor.body.token;
+    await clearTables();
+    await models.User.bulkCreate(adminData);
+
+    adminToken = await generateTestToken('d.smith@mail.com');
   });
 
   afterAll(async () => {
-    await models.User.destroy({ force: true, truncate: { cascade: true } });
-    await models.Category.destroy({ force: true, truncate: { cascade: true } });
+    await clearTables();
   });
 
   describe('#createCategory', () => {
@@ -26,7 +24,7 @@ describe('Category Controller Specs', () => {
       request(app)
         .post('/api/category/new')
         .set('Content-Type', 'application/json')
-        .set('authorization', token)
+        .set('authorization', adminToken)
         .send({ name: 'Fruits' })
         .end((err, res) => {
           const { category, success } = res.body;
@@ -43,7 +41,7 @@ describe('Category Controller Specs', () => {
       request(app)
         .post('/api/category/new')
         .set('Content-Type', 'application/json')
-        .set('authorization', token)
+        .set('authorization', adminToken)
         .send({ name: 'Fruits' })
         .end((err, res) => {
           const { errors, success } = res.body;
@@ -62,7 +60,7 @@ describe('Category Controller Specs', () => {
       request(app)
         .get('/api/categories')
         .set('Content-Type', 'application/json')
-        .set('authorization', token)
+        .set('authorization', adminToken)
         .end((err, res) => {
           const { categories, success } = res.body;
 
@@ -80,7 +78,7 @@ describe('Category Controller Specs', () => {
       request(app)
         .get('/api/category/1')
         .set('Content-Type', 'application/json')
-        .set('authorization', token)
+        .set('authorization', adminToken)
         .end((err, res) => {
           const { category, success } = res.body;
 
@@ -96,7 +94,7 @@ describe('Category Controller Specs', () => {
       request(app)
         .get('/api/category/2')
         .set('Content-Type', 'application/json')
-        .set('authorization', token)
+        .set('authorization', adminToken)
         .end((err, res) => {
           const { errors, success } = res.body;
 
@@ -114,7 +112,7 @@ describe('Category Controller Specs', () => {
       request(app)
         .put('/api/category/1')
         .set('Content-Type', 'application/json')
-        .set('authorization', token)
+        .set('authorization', adminToken)
         .send({ name: 'Vegetables' })
         .end((err, res) => {
           const { category, success } = res.body;
@@ -131,7 +129,7 @@ describe('Category Controller Specs', () => {
       request(app)
         .put('/api/category/2')
         .set('Content-Type', 'application/json')
-        .set('authorization', token)
+        .set('authorization', adminToken)
         .send({ name: 'Vegetables' })
         .end((err, res) => {
           const { errors, success } = res.body;

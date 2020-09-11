@@ -13,7 +13,6 @@ export const createGrocery = async (req, res) => {
     const newGrocery = {
       name, description, price, categoryId
     };
-    await trimData(newGrocery);
 
     const existingGrocery = await models.Grocery.findOne({ where: { name, vendorId } });
     if (existingGrocery) return errorResponse('You already have a similar grocery', 409, res);
@@ -28,7 +27,7 @@ export const createGrocery = async (req, res) => {
       message: 'Creation successful',
       grocery
     });
-  } catch (error) {
+  } catch (error) { /* istanbul ignore next */
     return errorResponse(error.toString(), 500, res);
   }
 };
@@ -58,11 +57,11 @@ export const allGroceries = async (req, res) => {
 
     const groceries = await models.Grocery.findAll(queryClause);
 
-    return res.status(201).json({
+    return res.status(200).json({
       success: true,
       groceries
     });
-  } catch (error) {
+  } catch (error) { /* istanbul ignore next */
     return errorResponse(error.toString(), 500, res);
   }
 };
@@ -84,11 +83,13 @@ export const getGrocery = async (req, res) => {
       }]
     });
 
-    return res.status(201).json({
+    if (!grocery) return errorResponse('Grocery does not exist', 404, res);
+
+    return res.status(200).json({
       success: true,
       grocery
     });
-  } catch (error) {
+  } catch (error) { /* istanbul ignore next */
     return errorResponse(error.toString(), 500, res);
   }
 };
@@ -106,7 +107,7 @@ export const updateGrocery = async (req, res) => {
       attributes: { exclude: ['vendorId', 'createdAt', 'updatedAt'] },
     });
   
-    if (!grocery) return errorResponse('Grocery does not exist', 409, res);
+    if (!grocery) return errorResponse('Grocery does not exist', 404, res);
   
     const groceryUpdateData = {
       name: name || (grocery.name || ''),
@@ -114,6 +115,7 @@ export const updateGrocery = async (req, res) => {
     };
   
     await trimData(groceryUpdateData);
+    /* istanbul ignore next */
     await grocery.update({
       ...groceryUpdateData,
       price: price || (grocery.price || 0),
@@ -125,7 +127,7 @@ export const updateGrocery = async (req, res) => {
       success: true,
       grocery
     });
-  } catch (error) {
+  } catch (error) { /* istanbul ignore next */
     return errorResponse(error.toString(), 500, res);
   }
 };

@@ -2,14 +2,14 @@ import express from 'express';
 import * as CategoryController from './categoryController';
 import * as GroceryValidator from '../../middleware/validators/groceryValidator';
 import { validatorResponse } from '../../middleware/validators/Validator';
-import { authorizeUser, authorizeVendorOrAdmin } from '../../middleware/auth';
+import { authorizeUser, authorizeAdmin } from '../../middleware/auth';
 
 const Router = express.Router();
 
 Router.post(
   '/category/new',
   authorizeUser,
-  authorizeVendorOrAdmin,
+  authorizeAdmin,
   GroceryValidator.createCategoryryValidators,
   validatorResponse,
   CategoryController.createCategory
@@ -28,7 +28,7 @@ Router.get(
 Router.put(
   '/category/:id',
   authorizeUser,
-  authorizeVendorOrAdmin,
+  authorizeAdmin,
   CategoryController.updateCategory
 );
 
