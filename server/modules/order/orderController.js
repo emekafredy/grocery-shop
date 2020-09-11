@@ -39,7 +39,7 @@ export const getOrders = async (req, res) => {
     }
 
     return res.status(200).json({ success: true, message: 'No order found' });
-  } catch (error) {
+  } catch (error) { /* istanbul ignore next */
     return errorResponse(error.toString(), 500, res);
   }
 };
