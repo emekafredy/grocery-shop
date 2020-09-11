@@ -5,6 +5,9 @@ export const clearTables = async () => {
   await models.User.destroy({ force: true, truncate: true, restartIdentity: true });
   await models.Category.destroy({ force: true, truncate: true, restartIdentity: true });
   await models.Grocery.destroy({ force: true, truncate: true, restartIdentity: true });
+  await models.Address.destroy({ force: true, truncate: true, restartIdentity: true });
+  await models.Order.destroy({ force: true, truncate: true, restartIdentity: true });
+  await models.ShoppingCart.destroy({ force: true, truncate: true, restartIdentity: true });
 };
 
 export const generateTestToken = async (email) => {
