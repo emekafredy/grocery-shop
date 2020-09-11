@@ -13,6 +13,14 @@ export const validVendorInput = {
   role: 'vendor'
 };
 
+export const validAdminInput = {
+  name: 'John',
+  email: 'john@mail.com',
+  password: '123456789',
+  vendorName: 'vendor123',
+  role: 'admin'
+};
+
 export const missingInputValues = {
   name: 'Jane',
   email: '',
@@ -81,3 +89,30 @@ export const duplicateVendorInput = {
   vendorName: 'vendor123',
   role: 'vendor'
 };
+
+export const usersData = [
+  {
+    name: 'John Doe',
+    email: 'j.doe@mail.com',
+    password: '123456789',
+    role: 'vendor'
+  }, {
+    name: 'Jane Smith',
+    email: 'j.smith@mail.com',
+    password: '123456789',
+  }
+];
+
+export const usersDataII = [
+  {
+    name: 'Doe Smith',
+    email: 'd.smith@mail.com',
+    password: '123456789',
+    role: 'admin'
+  }, {
+    name: 'John Doe',
+    email: 'j.doe@mail.com',
+    password: '123456789',
+    role: 'vendor'
+  }
+];

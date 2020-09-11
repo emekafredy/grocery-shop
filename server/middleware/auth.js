@@ -14,7 +14,7 @@ export const authorizeUser = async (req, res, next) => {
       req.role = decoded.role;
       return next();
     });
-  } catch (err) {
+  } catch (err) { /* istanbul ignore next */
     return errorResponse(err, 500, res);
   }
 };

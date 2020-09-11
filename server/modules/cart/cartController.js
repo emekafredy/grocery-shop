@@ -6,7 +6,7 @@ import models from '../../database/models';
 export const generateCartId = async (_req, res) => {
   try {
     const uniqueId = uniqid();
-    return res.status(201).json({ success: true, cartId: uniqueId });
+    return res.status(200).json({ success: true, cartId: uniqueId });
   } catch (error) { /* istanbul ignore next */
     return errorResponse(error, 500, res);
   }
