@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/emekafredy/xpens_traka.svg?branch=master)](https://travis-ci.org/emekafredy/xpens_traka)
+[![Build Status](https://travis-ci.org/emekafredy/grocery-shop.svg?branch=master)](https://travis-ci.org/emekafredy/grocery-shop)
 [![codecov](https://codecov.io/gh/emekafredy/grocery-shop/branch/master/graph/badge.svg)](https://codecov.io/gh/emekafredy/grocery-shop)
 
 ## Grocery Shop API
